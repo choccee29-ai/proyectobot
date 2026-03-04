@@ -1,3 +1,10 @@
+import asyncio
+
+try:
+    asyncio.get_event_loop()
+except RuntimeError:
+    asyncio.set_event_loop(asyncio.new_event_loop())
+
 import sqlite3
 from datetime import datetime
 from telegram import Update
@@ -224,3 +231,4 @@ if __name__ == "__main__":
 
     print("🤖 Bot funcionando correctamente...")
     app.run_polling()
+
