@@ -208,9 +208,7 @@ async def salir(update: Update, context: ContextTypes.DEFAULT_TYPE):
 # MAIN
 # =========================
 
-import asyncio
-
-async def main():
+if __name__ == "__main__":
     crear_base_datos()
 
     app = ApplicationBuilder().token(TOKEN).build()
@@ -225,7 +223,4 @@ async def main():
     app.add_handler(CommandHandler("salir", salir))
 
     print("🤖 Bot funcionando correctamente...")
-    await app.run_polling()
-
-if __name__ == "__main__":
-    asyncio.run(main())
+    app.run_polling()
